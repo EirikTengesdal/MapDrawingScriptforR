@@ -3,7 +3,7 @@ This repository contains an R script designed to draw maps using *sf* objects an
 
 I encourage people to adapt the script to create maps for their purposes. It is possible to manipulate many factors, thus allowing for substantial customisation.
 
-## About NALS – Denmark
+## About NALS_Denmark
 This script was used to create the map in the paper *Argument Placement in Danish* (Tengesdal, 2021, manuscript for [NALS](https://journals.uio.no/index.php/NALS/index)). The map shown below can be reproduced using the archived script and associated files.
 
 ![NALS_Denmark_GitHub.svg](https://github.com/EirikTengesdal/MapDrawingScriptforR/blob/main/NALS_Denmark/NALS_Denmark_GitHub.svg)

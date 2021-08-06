@@ -48,14 +48,14 @@ The following packages were crucial for the drawings (the other packages were im
 ## Citation information
 Please cite the script if you use it. The following citation example could be used (but it should be customised according to relevant citation style):
 
-Tengesdal, Eirik. 2021. Map Drawing Script for R (Version 1.0.0). [Software]. Available from https://github.com/EirikTengesdal/MapDrawingScriptforR
+Tengesdal, Eirik. 2021. Map Drawing Script for R (Version 1.0.0). [Software]. Available from https://doi.org/10.5281/zenodo.5167688
 
 Example of BibTeX entry:
 ```
 @misc{Tengesdal2021_MapDrawingScriptforR,
     title   = {{Map Drawing Script for R (Version 1.0.0). [Software]}},
     author  = {Tengesdal, Eirik},
-    url     = {https://github.com/EirikTengesdal/MapDrawingScriptforR},
+    url     = {https://doi.org/10.5281/zenodo.5167688},
     year    = {2021}
 }
 ```

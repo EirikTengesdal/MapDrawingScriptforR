@@ -59,6 +59,8 @@ Example of BibTeX entry:
     year    = {2021}
 }
 ```
+## DOI
+[![DOI](https://zenodo.org/badge/393439333.svg)](https://zenodo.org/badge/latestdoi/393439333)
 
 ## Funding
 Parts of this work has been funded by the Research Council of Norway project *Variation and Change in the Scandinavian Verb Phrase* (project number: 250755, PI: Ida Larsson).

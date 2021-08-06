@@ -1,7 +1,7 @@
 # Map Drawing Script for R
 This repository contains an R script designed to draw maps using *sf* objects and coördinates. More scripts will be added to this repository in the future.
 
-I encourage people to adapt the script to create maps for their purposes. It is possible to manipulate many factors, thus allowing for substantial customisation.
+I encourage people to adapt the script to create maps for their own purposes. It is possible to manipulate many factors, thus allowing for substantial customisation.
 
 ## About NALS_Denmark
 This script was used to create the map in the paper *Argument Placement in Danish* (Tengesdal, 2021, manuscript for [NALS](https://journals.uio.no/index.php/NALS/index)). The map shown below can be reproduced using the archived script and associated files.

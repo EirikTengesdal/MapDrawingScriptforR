@@ -52,11 +52,13 @@ Tengesdal, Eirik. 2021. Map Drawing Script for R (Version 1.0.0). [Software]. Av
 
 Example of BibTeX entry:
 ```
-@misc{Tengesdal2021_MapDrawingScriptforR,
-    title   = {{Map Drawing Script for R (Version 1.0.0). [Software]}},
-    author  = {Tengesdal, Eirik},
-    url     = {https://doi.org/10.5281/zenodo.5167688},
-    year    = {2021}
+@software{Tengesdal_MapDrawingScriptforR_2021,
+  author       = {Tengesdal, Eirik},
+  title        = {{Map Drawing Script for R. [Software]}},
+  year         = {2021},
+  publisher    = {Zenodo},
+  version      = {1.0.0},
+  doi          = {https://doi.org/10.5281/zenodo.5167688}
 }
 ```
 

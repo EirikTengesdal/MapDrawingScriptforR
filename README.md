@@ -55,6 +55,7 @@ The following packages were crucial for the drawings (the other packages were im
 
 ## History
 **Version 2.0.0** (2022.11.29): Updated script to include other European countries, based on an improved script (yet to be made available in Github or Zenodo) 					used to create a map for another manuscript. Consolidated two scripts (Norway & Denmark) into one. Updated citation information 				and other details.
+
 **Version 1.0.0** (2021.08.06): Added repository to GitHub. Included script for NALS_Denmark.
 
 ## Citation information

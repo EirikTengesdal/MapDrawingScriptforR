@@ -75,7 +75,7 @@ Example of BibTeX entry:
 }
 ```
 
-Please note that the following Concept DOI represents all of the versions of our record, and will currently resolve to the landing page of the latest version of the record: https://doi.org/10.5281/zenodo.5167687
+Please note that the following Concept DOI represents all of the versions of the record, and will currently resolve to the landing page of the latest version of the record: https://doi.org/10.5281/zenodo.5167687
 
 The recommended practice is to cite a specific version of the repository. Find the relevant Version DOI at Zenodo, for instance via the Concept DOI above.
 

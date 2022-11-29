@@ -29,7 +29,7 @@ The data points file can be altered such that other types of coördinate sets ca
 ## Software
 The following software has been used in the making of this script:
 
-* Microsoft® Excel® 2016 (latest run version: 16.0.5173.1000) 32-bit
+* Microsoft® Excel® 2021 MSO (latest run version: 2210 Build 16.0.15726.20188) 64-bit
 * RStudio (latest run version: 2022.7.1.554)
 * R (latest run version: 4.1.2)
   * R packages (latest run version numbers within parentheses):

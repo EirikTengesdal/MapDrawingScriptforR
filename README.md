@@ -1,5 +1,5 @@
 # Map Drawing Script for R. NALS – Norway & Denmark.
-This repository contains an R script designed to draw maps using *sf* objects and coördinates. Changes to the script and repository might be added in the future.
+This repository contains an R script designed to draw maps using *sf* objects and coördinates. Changes to the script and repository might be implemented in the future.
 
 I encourage people to adapt the script to create maps for their own purposes. It is possible to manipulate many factors, thus allowing for substantial customisation.
 

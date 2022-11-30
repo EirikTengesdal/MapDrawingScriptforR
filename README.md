@@ -85,7 +85,7 @@ Parts of this work has been funded by the Research Council of Norway project *Va
 ## DOI
 [![DOI](https://zenodo.org/badge/393439333.svg)](https://zenodo.org/badge/latestdoi/393439333)
 
-## License and copyright
+## Licence and copyright
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 © 2021–2022 Eirik Tengesdal

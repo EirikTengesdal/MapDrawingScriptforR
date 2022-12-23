@@ -46,31 +46,33 @@ The following software has been used in the making of this script:
 
 The following packages were crucial for the drawings (the other packages were important data manipulation tools):
 
-* ggplot2
-* ggspatial
-* ggrepel
-* ggnewscale
-* ggpattern
-* sf
+* ggplot2 (Wickham, Hadley. 2016. ggplot2: Elegant Graphics for Data Analysis [Software, version 3.4.0]. Springer-Verlag New York. https://ggplot2.tidyverse.org)
+* ggspatial (Dunnington, Dewey. 2022. ggspatial: Spatial Data Framework for ggplot2 [Software, version 1.1.6]. https://CRAN.R-project.org/package=ggspatial)
+* ggrepel (Slowikowski, Kamil. 2021. ggrepel: Automatically Position Non-Overlapping Text Labels with 'ggplot2' [Software, version 0.9.1]. https://CRAN.R-project.org/package=ggrepel)
+* ggnewscale (Campitelli, Elio. 2022. ggnewscale: Multiple Fill and Colour Scales in 'ggplot2' [Software, version 0.4.7]. https://CRAN.R-project.org/package=ggnewscale)
+* ggpattern (FC, Mike, Trevor L. Davis & ggplot2 authors. 2022. ggpattern: 'ggplot2' Pattern Geoms [Software, version 1.0.1]. https://CRAN.R-project.org/package=ggpattern)
+* sf (Pebesma, Edzer. 2018. Simple Features for R: Standardized Support for Spatial Vector Data. The R Journal, 10(1): 439–446. https://doi.org/10.32614/RJ-2018-009)
 
 ## History
-**Version 2.0.0** (2022.11.30): Updated script to include other European countries, based on an improved script (yet to be made available in Github or Zenodo) 					used to create a map for another manuscript. Consolidated two scripts (Norway & Denmark) into one. Updated citation information 				and other details. Deleted "NALS_Denmark" repository folder. Added new files to repository.
+**Version 2.0.1** (2022.12.23): Removed Fosen from the CSV and thus from the map. Removed nudge_x and nudge_y arguments for Fosen in Norway plot. Updated citation information and other details. Updated "MapDrawingScript_NALS.R", "NWD_NOR_RL_coordinates.csv" and "NALS_Norway.png" in the NALS repository folder.
+
+**Version 2.0.0** (2022.11.30): Updated script to include other European countries, based on an improved script (yet to be made available in Github or Zenodo) used to create a map for another manuscript. Consolidated two scripts (Norway & Denmark) into one. Updated citation information and other details. Deleted "NALS_Denmark" repository folder. Added new files to repository.
 
 **Version 1.0.0** (2021.08.06): Added repository to GitHub. Included script for NALS_Denmark.
 
 ## Citation information
 Please cite the script if you use it. The following citation example could be used (but it should be customised according to relevant citation style in academic contexts, version number, and the Zenodo DOI address of the specific release):
 
-Tengesdal, Eirik. 2022. Map Drawing Script for R. NALS – Norway & Denmark (Version 2.0.0). [Software]. DOI: https://doi.org/10.5281/zenodo.7379009
+Tengesdal, Eirik. 2022. Map Drawing Script for R. NALS – Norway & Denmark (Version 2.0.1). [Software]. DOI: https://doi.org/10.5281/zenodo.7379009
 
 Example of BibTeX entry:
 ```
-@software{Tengesdal_MapDrawingScriptforR_2021,
+@software{Tengesdal_2022_MapDrawingScriptforR,
   author       = {Tengesdal, Eirik},
   title        = {{Map Drawing Script for R. NALS – Norway & Denmark [Software]}},
   year         = {2022},
   publisher    = {Zenodo},
-  version      = {2.0.0},
+  version      = {2.0.1},
   doi          = {https://doi.org/10.5281/zenodo.7379009}
 }
 ```

@@ -33,8 +33,8 @@
 ##                  number, and the Zenodo DOI address of the specific release):
 ##                  
 ##                  Tengesdal, Eirik. 2022. Map Drawing Script for R. NALS –
-##                  Norway & Denmark (Version 2.0.0). [Software]. DOI:
-##                  https://doi.org/10.5281/zenodo.5167688 [*use correct DOI*]
+##                  Norway & Denmark (Version 2.0.1). [Software]. DOI:
+##                  https://doi.org/10.5281/zenodo.7379009 [*use correct DOI*]
 ##
 ## Notes -----------------------------------------------------------------------
 ##

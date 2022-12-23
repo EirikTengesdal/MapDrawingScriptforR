@@ -15,7 +15,8 @@
 ##
 ## Email:           eirik@tengesdal.name | eirik.tengesdal@iln.uio.no
 ##
-## Releases:        Version 2.0.0: 30.11.2022
+## Releases:        Version 2.0.1: 23.12.2022
+##                  Version 2.0.0: 30.11.2022
 ## (DD.MM.YYYY)     Version 1.0.0: 06.08.2021
 ##
 ## Copyright:       © 2021–2022 Eirik Tengesdal
@@ -37,6 +38,8 @@
 ##
 ## Notes -----------------------------------------------------------------------
 ##
+## Version 2.0.1:   • Removed Fosen from the CSV and thus from the map. Removed
+##                    nudge_x and nudge_y arguments for Fosen in Norway plot.
 ## Version 2.0.0:   • Updated script to include other European countries, based
 ##                    on an improved script (yet to be made available in Github
 ##                    or Zenodo) used to create a map for another manuscript.
@@ -289,7 +292,7 @@ print(c("Ørjan","Pyhtää"))
 
 # Original source and the date of the material version produced in this script:
 # Statistics Finland, *Municipality-based statistical units*. The material was
-# downloaded from Statistics Finland's interface service on 29 November 2022
+# downloaded from Statistics Finland's interface service on 23 December 2022
 # with the licence Attribution 4.0 International (CC BY 4.0) 
 # [https://creativecommons.org/licenses/by/4.0/deed.en].
 
@@ -737,6 +740,7 @@ theme_update(
 ##### Data – Norway – NWD data point coördinates -------------------------------
 # Here, data point coördinates are imported from CSV files.
 
+#NWD_NOR_DP_coordinates <- read.csv("C:\\Users\\eirikten\\Dropbox (UiO)\\PhD\\NALS-artiklar\\NWD_NOR_DP_coordinates.csv", sep = ";", fileEncoding = "UTF-8-BOM", check.names = FALSE)
 NWD_NOR_DP_coordinates <- read.csv("G:\\Dropbox (UiO)\\PhD\\NALS-artiklar\\NWD_NOR_DP_coordinates.csv", sep = ";", fileEncoding = "UTF-8-BOM", check.names = FALSE)
 
 # Separate and move the comma-separated latitude and longitude values in the
@@ -758,6 +762,7 @@ NWD_NOR_DP_coordinates <- NWD_NOR_DP_coordinates %>%
 str(NWD_NOR_DP_coordinates)
 
 ##### Data – Norway – NWD recording location coördinates -----------------------
+#NWD_NOR_RL_coordinates <- read.csv("C:\\Users\\eirikten\\Dropbox (UiO)\\PhD\\NALS-artiklar\\NWD_NOR_RL_coordinates.csv", sep = ";", fileEncoding = "UTF-8-BOM", check.names = FALSE)
 NWD_NOR_RL_coordinates <- read.csv("G:\\Dropbox (UiO)\\PhD\\NALS-artiklar\\NWD_NOR_RL_coordinates.csv", sep = ";", fileEncoding = "UTF-8-BOM", check.names = FALSE)
 
 # Separate and move the comma-separated latitude and longitude values in the
@@ -843,8 +848,8 @@ NALSNorwayPlot <- ggplot() +
     aes(x = Longitude, y = Latitude, label = Place),
     family = my_font,
     size = 12 * 0.36,
-    nudge_x = c(0, 0, 5, 6, -2.5, -4, 5, -3, -4, 6, 0, 4, -1, -1),
-    nudge_y = c(-0.8, 1, 0, 0, 0.5, 0, 0, 0.5, 0, 0, 0.8, 0, 1, 1)
+    nudge_x = c(0, 0, 5, 6, -2.5, -4, 5, -3, -4, 6, 0, 4, -1),
+    nudge_y = c(-0.8, 1, 0, 0, 0.5, 0, 0, 0.5, 0, 0, 0.8, 0, 1)
   ) + # Set these values manually
   scale_colour_manual(values = c("Participant home town/county/self-defined dialect" = "darkred", "Recording location" = "darkblue"), guide = guide_legend(order = 1)) + # Set these values manually
   scale_fill_manual(values = c("Participant home town/county/self-defined dialect" = "red", "Recording location" = "blue"), guide = guide_legend(order = 1)) + # Set these values manually

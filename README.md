@@ -45,7 +45,7 @@ The following software has been used in the making of this script:
 	  * purrr (0.3.4)
 	  * rmapshaper (0.4.6)
 
-## References and software
+## References
 For drawing the two NALS article maps, the following references, software and packages were crucial (the other packages were important data manipulation tools):
 
 * Campitelli, Elio. 2022. *ggnewscale: Multiple Fill and Colour Scales in 'ggplot2'* [Software, version 0.4.7]. https://CRAN.R-project.org/package=ggnewscale

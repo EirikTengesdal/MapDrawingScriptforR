@@ -43,15 +43,22 @@ The following software has been used in the making of this script:
 	  * httr (1.4.4)
 	  * ows4R (0.3.2)
 	  * purrr (0.3.4)
+	  * rmapshaper (0.4.6)
 
-The following packages were crucial for the drawings (the other packages were important data manipulation tools):
+## References and software
+For drawing the two NALS article maps, the following references, software and packages were crucial (the other packages were important data manipulation tools):
 
-* ggplot2 (Wickham, Hadley. 2016. ggplot2: Elegant Graphics for Data Analysis [Software, version 3.4.0]. Springer-Verlag New York. https://ggplot2.tidyverse.org)
-* ggspatial (Dunnington, Dewey. 2022. ggspatial: Spatial Data Framework for ggplot2 [Software, version 1.1.6]. https://CRAN.R-project.org/package=ggspatial)
-* ggrepel (Slowikowski, Kamil. 2021. ggrepel: Automatically Position Non-Overlapping Text Labels with 'ggplot2' [Software, version 0.9.1]. https://CRAN.R-project.org/package=ggrepel)
-* ggnewscale (Campitelli, Elio. 2022. ggnewscale: Multiple Fill and Colour Scales in 'ggplot2' [Software, version 0.4.7]. https://CRAN.R-project.org/package=ggnewscale)
-* ggpattern (FC, Mike, Trevor L. Davis & ggplot2 authors. 2022. ggpattern: 'ggplot2' Pattern Geoms [Software, version 1.0.1]. https://CRAN.R-project.org/package=ggpattern)
-* sf (Pebesma, Edzer. 2018. Simple Features for R: Standardized Support for Spatial Vector Data. The R Journal, 10(1): 439–446. https://doi.org/10.32614/RJ-2018-009)
+* Campitelli, Elio. 2022. *ggnewscale: Multiple Fill and Colour Scales in 'ggplot2'* [Software, version 0.4.7]. https://CRAN.R-project.org/package=ggnewscale
+* Dunnington, Dewey. 2022. *ggspatial: Spatial Data Framework for ggplot2* [Software, version 1.1.6]. https://CRAN.R-project.org/package=ggspatial
+* FC, Mike, Trevor L. Davis & ggplot2 authors. 2022. *ggpattern: 'ggplot2' Pattern Geoms* [Software, version 1.0.1]. https://CRAN.R-project.org/package=ggpattern
+* *Norske fylker og kommuner illustrasjonsdata 2017 (klippet etter kyst)* [Geospatial data]. Downloaded on 12 January 2023 from https://kartkatalog.geonorge.no/metadata/norske-fylker-og-kommuner-illustrasjonsdata-2017-klippet-etter-kyst/b968a494-5341-4c2a-9e5b-afaf7581de1f with the licence [CC0 1.0 Universal (CC0 1.0) Public Domain Dedication](https://creativecommons.org/publicdomain/zero/1.0/)
+* *Norske fylker og kommuner illustrasjonsdata 2021 (klippet etter kyst)* [Geospatial data]. Downloaded on 26 November 2022 from https://kartkatalog.geonorge.no/metadata/norske-fylker-og-kommuner-illustrasjonsdata-2021-klippet-etter-kyst/f08fca3c-33ee-49b9-be9f-028ebba5e460 with the licence [CC0 1.0 Universal (CC0 1.0) Public Domain Dedication](https://creativecommons.org/publicdomain/zero/1.0/)
+* Pebesma, Edzer. 2018. Simple Features for R: Standardized Support for Spatial Vector Data. *The R Journal*, 10(1): 439–446. https://doi.org/10.32614/RJ-2018-009
+* R Core Team. 2020. *R: A language and environment for statistical computing* [Software, version 4.1.2]. R Foundation for Statistical Computing, Vienna, Aus-tria. https://www.r-project.org
+* RStudio Team. 2020. *RStudio: Integrated Development Environment for R* [Software, version 2022.7.1.554]. RStudio, PBC, Boston, MA. https://www.rstudio.com
+* Slowikowski, Kamil. 2021. ggrepel: Automatically Position Non-Overlapping Text Labels with 'ggplot2' [Software, version 0.9.1]. https://CRAN.R-project.org/package=ggrepel
+* Statistics Finland. 2022. *Municipality-based statistical units* [Geospatial data]. Downloaded on 23 December 2022 from Statistics Finland's interface service with the licence [Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/deed.en)
+* Wickham, Hadley. 2016. *ggplot2: Elegant Graphics for Data Analysis* [Software, version 3.4.0]. Springer-Verlag New York. https://ggplot2.tidyverse.org
 
 ## History
 **Version 2.0.1** (2022.12.23): Removed Fosen from the CSV and thus from the map. Removed nudge_x and nudge_y arguments for Fosen in Norway plot. Updated citation information and other details. Updated "MapDrawingScript_NALS.R", "NWD_NOR_RL_coordinates.csv" and "NALS_Norway.png" in the NALS repository folder.

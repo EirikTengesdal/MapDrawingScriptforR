@@ -39,7 +39,7 @@
 ##
 ## Notes -----------------------------------------------------------------------
 ##
-## Version 2.0.2:   • Recast Norway county data point locations as counties
+## Version 2.1.0:   • Recast Norway county data point locations as counties
 ##                    instead of as labeled points. Added code to support this.
 ##                    Any backward compatibility issues will be addressed later.
 ## Version 2.0.1:   • Removed Fosen from the CSV and thus from the map. Removed

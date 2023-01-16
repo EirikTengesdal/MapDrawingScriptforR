@@ -6,20 +6,21 @@
 ## Script subtitle: NALS – Norway & Denmark.
 ##
 ## Script purpose:  To generate maps intended for the papers 'Argument placement
-##                  in Norwegian' (Lundquist & Tengesdal 2022, submitted) and
-##                  'Argument placement in Danish' (Tengesdal & Larsson 2022,
-##                  submitted). It can be tailored to generate desired maps and
+##                  in Norwegian' (Lundquist & Tengesdal 2022, in press) and
+##                  'Argument placement in Danish' (Larsson & Tengesdal 2022,
+##                  in press). It can be tailored to generate desired maps and
 ##                  custom features.
 ##
 ## Author:          Eirik Tengesdal
 ##
 ## Email:           eirik@tengesdal.name | eirik.tengesdal@iln.uio.no
 ##
-## Releases:        Version 2.0.1: 23.12.2022
+## Releases:        Version 2.1.0; 16.01.2023
+##                  Version 2.0.1: 23.12.2022
 ##                  Version 2.0.0: 30.11.2022
 ## (DD.MM.YYYY)     Version 1.0.0: 06.08.2021
 ##
-## Copyright:       © 2021–2022 Eirik Tengesdal
+## Copyright:       © 2021–2023 Eirik Tengesdal
 ##
 ## Licence:         Licenced under the MIT License
 ##
@@ -33,11 +34,14 @@
 ##                  number, and the Zenodo DOI address of the specific release):
 ##                  
 ##                  Tengesdal, Eirik. 2022. Map Drawing Script for R. NALS –
-##                  Norway & Denmark (Version 2.0.1). [Software]. DOI:
+##                  Norway & Denmark (Version 2.1.0). [Software]. DOI:
 ##                  https://doi.org/10.5281/zenodo.7379009 [*use correct DOI*]
 ##
 ## Notes -----------------------------------------------------------------------
 ##
+## Version 2.0.2:   • Recast Norway county data point locations as counties
+##                    instead of as labeled points. Added code to support this.
+##                    Any backward compatibility issues will be addressed later.
 ## Version 2.0.1:   • Removed Fosen from the CSV and thus from the map. Removed
 ##                    nudge_x and nudge_y arguments for Fosen in Norway plot.
 ## Version 2.0.0:   • Updated script to include other European countries, based
@@ -72,6 +76,9 @@ library("ggpattern")  # For diagonal stripes in for grouping ("ID")
 library("httr")       # For URL parsing and building
 library("ows4R")      # For interfacing with WFS service
 library("purrr")      # (For map_chr() (WFS interface); can be omitted)
+library("rmapshaper") # For processing polygon shapefiles
+
+#packageVersion()     # Find package version
 
 ##### Extrafont ----------------------------------------------------------------
 # You can skip this step if you do not need a special font. Because of somewhat
@@ -216,6 +223,13 @@ print(c("Ørjan","Pyhtää"))
 # enheter" og brukerrestriksjoner følger dette datasettets restriksjoner.
 # Security constraints: Ugradert"
 
+# In the updated version (2.0.2) of the Norwegian map, the borders of the three
+# counties Hedmark, Nordland and Sør-Trøndelag are included in the map instead
+# of labels. For this purpose, the corresponding dataset from Geonorge.no from
+# 2017 was used (prior to the Norwegian county reorganisation). The dataset was
+# downloaded from the following URL (2017 data) 12 January 2023:
+# https://kartkatalog.geonorge.no/metadata/norske-fylker-og-kommuner-illustrasjonsdata-2017-klippet-etter-kyst/b968a494-5341-4c2a-9e5b-afaf7581de1f
+
 
 ##### Access map data of Finland via Statistics Finland interface --------------
 # If you wish to download a map dataset of Finland based from an official
@@ -292,7 +306,7 @@ print(c("Ørjan","Pyhtää"))
 
 # Original source and the date of the material version produced in this script:
 # Statistics Finland, *Municipality-based statistical units*. The material was
-# downloaded from Statistics Finland's interface service on 23 December 2022
+# downloaded from Statistics Finland's interface service on 12 January 2023
 # with the licence Attribution 4.0 International (CC BY 4.0) 
 # [https://creativecommons.org/licenses/by/4.0/deed.en].
 
@@ -399,6 +413,20 @@ Norway_counties2021_wgs84 <- sf::st_transform(Norway_counties2021, "EPSG:4326")
 
 # Create one WGS 84 sf object for the whole of Norway based on the counties:
 Norway_dissolved_wgs84 <- rmapshaper::ms_dissolve(Norway_counties2021_wgs84)
+
+#NYTTTT!!!::
+# Create one sf object for the counties Hedmark, Nordland and Sør-Trøndelag:
+# Hedmark, Nordland and Sør-Trøndelag counties, based on Kartverket/Geodata.no:
+Norway_counties2017 <- sf::st_read("fylker17.geojson")
+
+# Filter the three counties:
+Norway_counties2017 <- dplyr::filter(
+  Norway_counties2017,
+  fylkesnavn %in% c("Hedmark", "Nordland", "Sør-Trøndelag")
+)
+
+# Harmonise to WGS 84 format, at county level:
+Norway_counties2017_wgs84 <- sf::st_transform(Norway_counties2017, "EPSG:4326")
 
 ###### Denmark -----------------------------------------------------------------
 sf::st_layers("gadm41_DNK.gpkg")
@@ -575,6 +603,7 @@ Finland_all_FINSWE_m_wgs84 <- rmapshaper::ms_dissolve(Finland_all_FINSWE_m_wgs84
 ###### Interim test plot -------------------------------------------------------
 ggplot() +
   geom_sf(data = Norway_dissolved_wgs84) +
+  #geom_sf(data = Norway_counties2017_wgs84) + # Hedmark, Nordland and Sør-Trøndelag
   geom_sf(data = Denmark_sf0) +
   geom_sf(data = Sweden_sf0) +
   geom_sf(data = Finland_dissolved_wgs84) +
@@ -643,6 +672,20 @@ Norway_dissolved_wgs84 <- Norway_dissolved_wgs84 %>%
   mutate("COUNTRY" = "Norway", .before = "geom") %>%
   mutate("GID_0" = "NOR")
 
+Norway_counties2017_wgs84_renamed <- Norway_counties2017_wgs84 %>%
+  rename("geom" = "geometry") %>%
+  rename("GID_0" = "fylkesnavn") %>%
+  rename("COUNTRY" = "fylkesnr") %>%
+  mutate("COUNTRY" = "Norway", .before = "geom") %>%
+  mutate(GID_0 = replace(GID_0, GID_0 == "Hedmark", "Hedmark_NOR")) %>%
+  mutate(GID_0 = replace(GID_0, GID_0 == "Sør-Trøndelag", "Sør-Trøndelag_NOR")) %>%
+  mutate(GID_0 = replace(GID_0, GID_0 == "Nordland", "Nordland_NOR"))
+
+# If you wish a full sf object of Norway, comment the next lines:
+# Remove the three counties from the dissolved Norway sf object:
+#Norway_dissolved_wgs84 <- ms_erase(Norway_dissolved_wgs84, Norway_counties2017_wgs84)
+Norway_dissolved_2017_wgs84 <- rbind(Norway_dissolved_wgs84,Norway_counties2017_wgs84_renamed)
+
 Finland_dissolved_wgs84 <- Finland_dissolved_wgs84 %>%
   rename("GID_0" = "rmapshaperid") %>%
   mutate("COUNTRY" = "Finland", .before = "geom") %>%
@@ -667,6 +710,15 @@ Europe_sf0 <- rbind(
   Finland_all_FINSWE_m_wgs84
 )
 
+Europe_NALS_sf0 <- rbind(
+  Norway_dissolved_2017_wgs84, Denmark_sf0, Sweden_sf0,
+  Finland_dissolved_wgs84, Iceland_sf0, FaroeIslands_sf0,
+  Svalbard_JanMayen_sf0, Estonia_sf0, GreatBritain_sf0,
+  Ireland_sf0, IsleofMan_sf0, Latvia_sf0, Lithuania_sf0,
+  Russia_sf0, Germany_sf0, Poland_sf0, Netherlands_sf0,
+  Finland_all_FINSWE_m_wgs84
+)
+
 # Uncomment if desired:
 # Europe_simplified_sf0 <- rbind(
 #   Norway_dissolved_wgs84, Denmark_sf0,
@@ -679,8 +731,12 @@ Europe_sf0 <- rbind(
 
 
 ##### Create subsets for NALS countries and areas ------------------------------
-NALS_subset <- subset(
+NALS_subset_complete <- subset(
   Europe_sf0,
+  COUNTRY == "Denmark" | COUNTRY == "Norway" | COUNTRY == "Sweden" | COUNTRY == "Iceland" | COUNTRY == "Faroe Islands" | COUNTRY == "Fenno-Swedish"
+)
+NALS_subset <- subset(
+  Europe_NALS_sf0,
   COUNTRY == "Denmark" | COUNTRY == "Norway" | COUNTRY == "Sweden" | COUNTRY == "Iceland" | COUNTRY == "Faroe Islands" | COUNTRY == "Fenno-Swedish"
 )
 Europe_excl_NALS <- subset(
@@ -695,27 +751,36 @@ tibble_obj_NOR <- tibble(
   COUNTRY = c("Denmark", "Norway", "Sweden", "Iceland", "Faroe Islands", "Fenno-Swedish"),
   ID = c("North Germanic area", "Norway", "North Germanic area", "North Germanic area", "North Germanic area", "North Germanic area")
 )
-NALS_subset_NOR <- NALS_subset %>%
+NALS_subset_NOR <- NALS_subset_complete %>%#NALS_subset %>%
+  left_join(tibble_obj_NOR, by = "COUNTRY")
+
+NALS_subset_complete_NOR <- NALS_subset_complete %>%
   left_join(tibble_obj_NOR, by = "COUNTRY")
 
 # Check Norway subset for the Norwegian NALS map:
 ggplot() +
   geom_sf(data = NALS_subset_NOR)
+ggplot() +
+  geom_sf(data = NALS_subset_complete_NOR)
 
+#FJERN:::
+# This map no longer shows the complete of Norway as in previous versions. Refer
+# to a previous version (e.g., version 2.0.1), or see comment for creating the
+# sf objects for Norway in the subsection "Norway" of the section "Create sf
+# objects for countries and Europe" above.
 
 ###### Denmark subset ----------------------------------------------------------
 tibble_obj_DNK <- tibble(
   COUNTRY = c("Denmark", "Norway", "Sweden", "Iceland", "Faroe Islands", "Fenno-Swedish"),
   ID = c("Denmark", "North Germanic area", "North Germanic area", "North Germanic area", "North Germanic area", "North Germanic area")
 )
-NALS_subset_DNK <- NALS_subset %>%
+NALS_subset_DNK <- NALS_subset_complete %>%
   left_join(tibble_obj_DNK, by = "COUNTRY")
 
 # Check Denmark subset for the Danish NALS map (should plot identically as with
 # NALS_subset_NOR):
 ggplot() +
   geom_sf(data = NALS_subset_DNK)
-
 
 #### General plot formatting ---------------------------------------------------
 ##### Font ---------------------------------------------------------------------
@@ -760,6 +825,12 @@ NWD_NOR_DP_coordinates <- NWD_NOR_DP_coordinates %>%
 
 # Check sf/data.frame object:
 str(NWD_NOR_DP_coordinates)
+
+# Remove the three county locations from the coordinates (instead of in CSV):
+NWD_NOR_DP_coordinates <- dplyr::filter(NWD_NOR_DP_coordinates, !Place %in% c("Hedmark", "Nordland", "Sør-Trøndelag"))
+#NWD_NOR_DP_places_coordinates <- dplyr::filter(NWD_NOR_DP_coordinates, !Place %in% c("Hedmark", "Nordland", "Sør-Trøndelag"))
+#NWD_NOR_DP_counties_coordinates <- dplyr::filter(NWD_NOR_DP_coordinates, Place %in% c("Hedmark", "Nordland", "Sør-Trøndelag"))
+
 
 ##### Data – Norway – NWD recording location coördinates -----------------------
 #NWD_NOR_RL_coordinates <- read.csv("C:\\Users\\eirikten\\Dropbox (UiO)\\PhD\\NALS-artiklar\\NWD_NOR_RL_coordinates.csv", sep = ";", fileEncoding = "UTF-8-BOM", check.names = FALSE)
@@ -824,14 +895,26 @@ NALSNorwayPlot <- ggplot() +
     pattern_spacing = 0.01,
     pattern_angle = 45
   ) + # Set these values manually
+  scale_colour_manual(values = c("Norway" = "#436B95", "North Germanic area" = "#7DAADC"), limits = c("Norway", "North Germanic area"), guide = guide_legend(order = 2)) +
+  scale_fill_manual(values = c("Norway" = "#79ABDC", "North Germanic area" = "white"), limits = c("Norway", "North Germanic area"), guide = guide_legend(order = 2)) +
+  scale_pattern_density_manual(values = c("Norway" = 0, "North Germanic area" = 0.01), limits = c("Norway", "North Germanic area"), guide = guide_legend(order = 2)) + # Set these values manually
+  new_scale_colour() +
+  new_scale_fill() +
+  geom_sf(
+    data = Norway_counties2017_wgs84,
+    aes(
+      colour = as.factor(fylkesnavn),
+      fill = as.factor(fylkesnavn)
+    )
+  ) +
+  scale_colour_manual(values = c("Hedmark" = "#436B95", "Nordland" = "#436B95", "Sør-Trøndelag" = "#436B95"), limits = c("Hedmark", "Nordland", "Sør-Trøndelag"), guide = guide_legend(order = 3)) +
+  scale_fill_manual(values = c("Hedmark" = "#ECECB6", "Nordland" = "#D1B6EC", "Sør-Trøndelag" = "#B6ECD0"), limits = c("Hedmark", "Nordland", "Sør-Trøndelag"), guide = guide_legend(order = 3)) + # Set these values manually
   theme_void() +
+  #coord_sf(xlim = c(2.5, 32.5), ylim = c(57.3, 72), expand = FALSE) + # Set these values manually
   theme(
     panel.background = element_rect("#E4F4FF"),
     panel.border = element_rect(fill = NA)
   ) +
-  scale_colour_manual(values = c("Norway" = "#436B95", "North Germanic area" = "#7DAADC"), limits = c("Norway", "North Germanic area"), guide = guide_legend(order = 2)) +
-  scale_fill_manual(values = c("Norway" = "#79ABDC", "North Germanic area" = "white"), limits = c("Norway", "North Germanic area"), guide = guide_legend(order = 2)) +
-  scale_pattern_density_manual(values = c("Norway" = 0, "North Germanic area" = 0.01), limits = c("Norway", "North Germanic area"), guide = guide_legend(order = 2)) + # Set these values manually
   new_scale_colour() +
   new_scale_fill() +
   geom_sf(
@@ -848,8 +931,8 @@ NALSNorwayPlot <- ggplot() +
     aes(x = Longitude, y = Latitude, label = Place),
     family = my_font,
     size = 12 * 0.36,
-    nudge_x = c(0, 0, 5, 6, -2.5, -4, 5, -3, -4, 6, 0, 4, -1),
-    nudge_y = c(-0.8, 1, 0, 0, 0.5, 0, 0, 0.5, 0, 0, 0.8, 0, 1)
+    nudge_x = c(0, 0, 6, -2.5, -4, -3, -4, 0, 4, -1),#fjerna nr. 3 Hedmark: 5,0; 7 Nordland: 5, 0; og 10 Sør-Trøndelag: 6,0.
+    nudge_y = c(-0.8, 1, 0, 0.8, 0, 0.5, 0, 0.8, 0, 1)#nr 4 Kristiansund: 0.5
   ) + # Set these values manually
   scale_colour_manual(values = c("Participant home town/county/self-defined dialect" = "darkred", "Recording location" = "darkblue"), guide = guide_legend(order = 1)) + # Set these values manually
   scale_fill_manual(values = c("Participant home town/county/self-defined dialect" = "red", "Recording location" = "blue"), guide = guide_legend(order = 1)) + # Set these values manually
@@ -857,7 +940,7 @@ NALSNorwayPlot <- ggplot() +
   theme(
     text = element_text(family = my_font),
     legend.title = element_blank(),
-    legend.position = c(0.24, 0.92) # Set these values manually
+    legend.position = c(0.24, 0.86) # Set these values manually #0.92
   ) +
   annotation_scale(location = "br", width_hint = 0.3, text_family = my_font) # Set these values manually
 

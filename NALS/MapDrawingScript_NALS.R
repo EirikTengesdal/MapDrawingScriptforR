@@ -15,7 +15,7 @@
 ##
 ## Email:           eirik@tengesdal.name | eirik.tengesdal@iln.uio.no
 ##
-## Releases:        Version 2.1.0; 16.01.2023
+## Releases:        Version 2.1.0: 16.01.2023
 ##                  Version 2.0.1: 23.12.2022
 ##                  Version 2.0.0: 30.11.2022
 ## (DD.MM.YYYY)     Version 1.0.0: 06.08.2021

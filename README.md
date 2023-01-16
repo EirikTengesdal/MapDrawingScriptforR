@@ -4,7 +4,7 @@ This repository contains an R script designed to draw maps using *sf* objects an
 I encourage people to adapt the script to create maps for their own purposes. It is possible to manipulate many factors, thus allowing for substantial customisation.
 
 ## About Map Drawing Script for R. NALS – Norway & Denmark.
-This script was made to generate maps intended for the papers *Argument placement in Norwegian* (Lundquist & Tengesdal 2022, submitted) and *Argument placement in Danish* (Tengesdal & Larsson 2022, submitted). The maps shown below can be reproduced using the archived script and associated files.
+This script was made to generate maps intended for the papers *Argument placement in Norwegian* (Lundquist & Tengesdal 2022, in press) and *Argument placement in Danish* (Larsson & Tengesdal 2022, in press). The maps shown below can be reproduced using the archived script and associated files.
 
 ![NALS_Norway.png](https://github.com/EirikTengesdal/MapDrawingScriptforR/blob/main/NALS/NALS_Norway.png)
 ![NALS_Denmark.png](https://github.com/EirikTengesdal/MapDrawingScriptforR/blob/main/NALS/NALS_Denmark.png)
@@ -61,6 +61,8 @@ For drawing the two NALS article maps, the following references, software and pa
 * Wickham, Hadley. 2016. *ggplot2: Elegant Graphics for Data Analysis* [Software, version 3.4.0]. Springer-Verlag New York. https://ggplot2.tidyverse.org
 
 ## History
+**Version 2.1.0** (2023.01.16): Recast Norway county data point locations as counties instead of as labeled points. Added code to support this. Updated other repository information, including references.
+
 **Version 2.0.1** (2022.12.23): Removed Fosen from the CSV and thus from the map. Removed nudge_x and nudge_y arguments for Fosen in Norway plot. Updated citation information and other details. Updated "MapDrawingScript_NALS.R", "NWD_NOR_RL_coordinates.csv" and "NALS_Norway.png" in the NALS repository folder.
 
 **Version 2.0.0** (2022.11.30): Updated script to include other European countries, based on an improved script (yet to be made available in Github or Zenodo) used to create a map for another manuscript. Consolidated two scripts (Norway & Denmark) into one. Updated citation information and other details. Deleted "NALS_Denmark" repository folder. Added new files to repository.
@@ -70,7 +72,7 @@ For drawing the two NALS article maps, the following references, software and pa
 ## Citation information
 Please cite the script if you use it. The following citation example could be used (but it should be customised according to relevant citation style in academic contexts, version number, and the Zenodo DOI address of the specific release):
 
-Tengesdal, Eirik. 2022. Map Drawing Script for R. NALS – Norway & Denmark (Version 2.0.1). [Software]. DOI: https://doi.org/10.5281/zenodo.7477199
+Tengesdal, Eirik. 2022. Map Drawing Script for R. NALS – Norway & Denmark (Version 2.0.1). [Software]. https://doi.org/10.5281/zenodo.7477199
 
 Example of BibTeX entry:
 ```
@@ -97,7 +99,7 @@ Parts of this work has been funded by the Research Council of Norway project *Va
 ## Licence and copyright
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-© 2021–2022 Eirik Tengesdal
+© 2021–2023 Eirik Tengesdal
 
 Licensed under the [MIT License](LICENSE).
 

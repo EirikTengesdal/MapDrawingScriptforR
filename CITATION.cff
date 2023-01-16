@@ -1,11 +1,11 @@
-cff-version: 2.1.0
+cff-version: 2.1.1
 message: "If you use this software, please cite it as below (edit details appropriately, e.g., the DOI)."
 authors:
 - family-names: "Tengesdal"
   given-names: "Eirik"
   orcid: "https://orcid.org/0000-0003-0599-8925"
 title: "Map Drawing Script for R. NALS – Norway & Denmark."
-version: 2.1.0
-doi: https://doi.org/10.5281/zenodo.7541371
+version: 2.1.1
+doi: https://doi.org/10.5281/zenodo.7541937
 date-released: 2023-01-16
 url: "https://github.com/EirikTengesdal/MapDrawingScriptforR"

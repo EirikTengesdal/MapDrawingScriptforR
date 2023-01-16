@@ -74,7 +74,7 @@ For drawing the two NALS article maps, the following references, software and pa
 ## Citation information
 Please cite the script if you use it. The following citation example could be used (but it should be customised according to relevant citation style in academic contexts, version number, and the Zenodo DOI address of the specific release):
 
-Tengesdal, Eirik. 2022. Map Drawing Script for R. NALS – Norway & Denmark (Version 2.1.0). [Software]. https://doi.org/10.5281/zenodo.7541371
+Tengesdal, Eirik. 2022. Map Drawing Script for R. *NALS – Norway & Denmark (Version 2.1.1)* [Software]. https://doi.org/10.5281/zenodo.7541937
 
 Example of BibTeX entry:
 ```
@@ -84,7 +84,7 @@ Example of BibTeX entry:
   year         = {2022},
   publisher    = {Zenodo},
   version      = {2.1.0},
-  doi          = {https://doi.org/10.5281/zenodo.7541371}
+  doi          = {https://doi.org/10.5281/zenodo.7541937}
 }
 ```
 

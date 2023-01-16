@@ -15,7 +15,8 @@
 ##
 ## Email:           eirik@tengesdal.name | eirik.tengesdal@iln.uio.no
 ##
-## Releases:        Version 2.1.0: 16.01.2023
+## Releases:        Version 2.1.1: 16.01.2023
+##                  Version 2.1.0: 16.01.2023
 ##                  Version 2.0.1: 23.12.2022
 ##                  Version 2.0.0: 30.11.2022
 ## (DD.MM.YYYY)     Version 1.0.0: 06.08.2021
@@ -39,6 +40,8 @@
 ##
 ## Notes -----------------------------------------------------------------------
 ##
+## Version 2.1.1:   • Updated to include the new NALS Norway map in the GitHub
+##                    repository and README file.
 ## Version 2.1.0:   • Recast Norway county data point locations as counties
 ##                    instead of as labeled points. Added code to support this.
 ##                    Any backward compatibility issues will be addressed later.

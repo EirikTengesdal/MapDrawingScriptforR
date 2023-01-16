@@ -4,7 +4,7 @@ This repository contains an R script designed to draw maps using *sf* objects an
 I encourage people to adapt the script to create maps for their own purposes. It is possible to manipulate many factors, thus allowing for substantial customisation.
 
 ## About Map Drawing Script for R. NALS – Norway & Denmark.
-This script was made to generate maps intended for the papers *Argument placement in Norwegian* (Lundquist & Tengesdal 2022, in press) and *Argument placement in Danish* (Larsson & Tengesdal 2022, in press). The maps shown below can be reproduced using the archived script and associated files.
+This script was made to generate maps intended for the papers *Argument Placement in Norwegian* (Lundquist & Tengesdal 2022, in press) and *Argument Placement in Danish* (Larsson & Tengesdal 2022, in press). The maps shown below can be reproduced using the archived script and associated files.
 
 ![NALS_Norway.png](https://github.com/EirikTengesdal/MapDrawingScriptforR/blob/main/NALS/NALS_Norway.png)
 ![NALS_Denmark.png](https://github.com/EirikTengesdal/MapDrawingScriptforR/blob/main/NALS/NALS_Denmark.png)

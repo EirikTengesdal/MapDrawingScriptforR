@@ -61,6 +61,8 @@ For drawing the two NALS article maps, the following references, software and pa
 * Wickham, Hadley. 2016. *ggplot2: Elegant Graphics for Data Analysis* [Software, version 3.4.0]. Springer-Verlag New York. https://ggplot2.tidyverse.org
 
 ## History
+**Version 2.1.1** (2023.01.16): Updated to include the new NALS Norway map in the GitHub repository and README file.
+
 **Version 2.1.0** (2023.01.16): Recast Norway county data point locations as counties instead of as labeled points. Added code to support this. Updated other repository information, including references.
 
 **Version 2.0.1** (2022.12.23): Removed Fosen from the CSV and thus from the map. Removed nudge_x and nudge_y arguments for Fosen in Norway plot. Updated citation information and other details. Updated "MapDrawingScript_NALS.R", "NWD_NOR_RL_coordinates.csv" and "NALS_Norway.png" in the NALS repository folder.

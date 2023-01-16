@@ -6,7 +6,7 @@ I encourage people to adapt the script to create maps for their own purposes. It
 ## About Map Drawing Script for R. NALS – Norway & Denmark.
 This script was made to generate maps intended for the papers *Argument placement in Norwegian* (Lundquist & Tengesdal 2022, in press) and *Argument placement in Danish* (Larsson & Tengesdal 2022, in press). The maps shown below can be reproduced using the archived script and associated files.
 
-[Due to GitHub upload issues, the new NALS Norway map could not be uploaded. A new release will include the final map.]
+![NALS_Norway.png](https://github.com/EirikTengesdal/MapDrawingScriptforR/blob/main/NALS/NALS_Norway.png)
 ![NALS_Denmark.png](https://github.com/EirikTengesdal/MapDrawingScriptforR/blob/main/NALS/NALS_Denmark.png)
 
 ### Contents

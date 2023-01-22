@@ -83,7 +83,7 @@ Example of BibTeX entry:
   title        = {{Map Drawing Script for R. NALS – Norway & Denmark [Software]}},
   year         = {2022},
   publisher    = {Zenodo},
-  version      = {2.1.0},
+  version      = {2.1.1},
   doi          = {https://doi.org/10.5281/zenodo.7541937}
 }
 ```
